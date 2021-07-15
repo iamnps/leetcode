@@ -3,7 +3,7 @@ package com.pearson.array;
 public class RemoveDuplicate {
      
     public static void main(String[] args) {
-        int[] sortArr = {1, 2, 2}; //sorted
+        int[] sortArr = {1, 2, 2, 3, 4, 5, 6, 6, 7, 7, 8, 8, 10}; //sorted
         int[] notSortArr = {2, 3, 4, 3, 5, 2, 3, 6, 7}; //not sort
 
         System.out.println(removeDuplicateFormSortArray(sortArr)); 
@@ -20,6 +20,11 @@ public class RemoveDuplicate {
             }
         }
         return i;
+    }
+
+    private static int removeDuplicateFormNotSortArray(int[] notSortArr){
+        
+        return 1;
     }
 
 }
