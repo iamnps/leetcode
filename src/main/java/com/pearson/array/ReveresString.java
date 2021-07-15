@@ -13,9 +13,12 @@ public class ReveresString {
     }
     
     public static char[] reveresString(char[] charAr){
+        //initialize
         int i = 0; 
         int j = charAr.length - 1;
+        //two pointers opposite direction
         while(i < j){
+            // swap charAr[i] and char[j]
             char temp = charAr[i];
             charAr[i] = charAr[j];
             charAr[j] = temp;
