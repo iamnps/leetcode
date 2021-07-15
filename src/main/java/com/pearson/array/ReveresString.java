@@ -6,7 +6,7 @@ public class ReveresString {
         char[] charAr = {'h', 'e', 'l', 'l', 'o'};
 
         charAr = reveresString(charAr);
-        
+        //print
         for(char temp : charAr){
             System.out.println(temp);
         }
