@@ -5,7 +5,7 @@ public class PalindromeNumber {
         System.out.println(palindromeNumber(1111111119));
     }
 
-    //先将字符串反转，再与原字符串对比
+    //先将数字反转，再与原字符串对比，因为回文数是正反都ok的，小于0则直接false
     private static boolean palindromeNumber(int x){
         if(x < 0){
             return false;

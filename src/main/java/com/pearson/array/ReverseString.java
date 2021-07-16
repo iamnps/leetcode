@@ -12,6 +12,7 @@ public class ReverseString {
         }
     }
     
+    //两个下标数字，互相替换位置即可
     public static char[] reverseString(char[] charAr){
         //initialize
         int i = 0, j = charAr.length - 1;
