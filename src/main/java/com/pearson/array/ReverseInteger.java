@@ -1,12 +1,12 @@
 package com.pearson.array;
 
-public class ReveresInteger {
+public class ReverseInteger {
     
     public static void main(String[] args) {
-        System.out.println(reveresInteger(123));
+        System.out.println(reverseInteger(123));
     }
 
-    public static int reveresInteger(int x){
+    public static int reverseInteger(int x){
         long a = (long) x;
         long r = 0L;
         while(a != 0){

@@ -1,18 +1,18 @@
 package com.pearson.array;
 
-public class ReveresString {
+public class ReverseString {
 
     public static void main(String[] args) {
         char[] charAr = {'h', 'e', 'l', 'l', 'o'};
 
-        charAr = reveresString(charAr);
+        charAr = reverseString(charAr);
         //print
         for(char temp : charAr){
             System.out.println(temp);
         }
     }
     
-    public static char[] reveresString(char[] charAr){
+    public static char[] reverseString(char[] charAr){
         //initialize
         int i = 0, j = charAr.length - 1;
         //two pointers opposite direction
