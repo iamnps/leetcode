@@ -1,4 +1,4 @@
-package com.pearson.array;
+package com.pearson.integer;
 
 public class PalindromeNumber {
     public static void main(String[] args) {
