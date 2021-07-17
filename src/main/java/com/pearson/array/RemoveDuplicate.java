@@ -7,8 +7,9 @@ public class RemoveDuplicate {
         int[] notSortArr = {2, 3, 4, 3, 5, 2, 3, 6, 7}; //not sort
 
         System.out.println(removeDuplicateFormSortArray(sortArr)); 
-        
     }
+
+
 
     private static int removeDuplicateFormSortArray(int[] sortArr){
         int i = 0, j = 0;

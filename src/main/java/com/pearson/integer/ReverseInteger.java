@@ -12,7 +12,7 @@ public class ReverseInteger {
         long a = (long) x;
         long r = 0L;
         while(a != 0){
-            r = r*10 + a%10;
+            r = r*10 + (a - (a / 10) * 10);//数学公式 a%10 = a - (a / 10) * 10
             a/=10;
         }
         //如果结果超出int范围，则直接false
