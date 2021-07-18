@@ -11,8 +11,8 @@ public class TwoSum {
         System.out.println(Arrays.toString(twoSum(new int[]{1,3}, 4)));
     }
 
-    //
-    public int[] twoSum(int[] nums, int target) {
+    //单纯使用array来解，速度较慢，两个指针，每次都要循环遍历整个array
+    public static int[] twoSum(int[] nums, int target) {
         int i = 0, j = 1;
         while (i < j){
             if (target != (nums[j] + nums[i])){
@@ -27,7 +27,4 @@ public class TwoSum {
         }
         return nums;
     }
-
-
-    
 }
