@@ -11,17 +11,23 @@ public class TwoSum {
         System.out.println(Arrays.toString(twoSum(new int[]{1,3}, 4)));
     }
 
-    //取出数组中，两个元素相加是目标数的下标
-    private static int[] twoSum(int nums[], int target){
-            HashMap<Integer, Integer> map = new HashMap<>();
-            int i = 0;
-            while(i <= nums.length - 1){
-                if(map.containsKey(target - nums[i])){
-                    return new int[]{map.get(target - nums[i]), i};
-                }   
-                map.put(nums[i], i);  
-                i++;
+    //
+    public int[] twoSum(int[] nums, int target) {
+        int i = 0, j = 1;
+        while (i < j){
+            if (target != (nums[j] + nums[i])){
+                j++;
+                if(j == nums.length){
+                    i++;
+                    j = i + 1;
+                }
+            } else {
+                return new int[]{i, j};
             }
-            return nums;
+        }
+        return nums;
     }
+
+
+    
 }
