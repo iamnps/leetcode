@@ -3,6 +3,7 @@ package com.pearson.linkedlist;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
+
 //leetcode 141
 public class LinkedListCycle {
 
@@ -11,7 +12,7 @@ public class LinkedListCycle {
         linkedListCycle.LinkedListCycle();
     }
 
-    public void LinkedListCycle(){
+    public void LinkedListCycle() {
         ListNode listNode1 = new ListNode(1);
         ListNode listNode2 = new ListNode(2);
         ListNode listNode3 = new ListNode(3);
@@ -23,24 +24,24 @@ public class LinkedListCycle {
         System.out.println(cycle(listNode5));
     }
 
-
-    private static boolean cycle(ListNode head){
-        if(head == null || null == head.next){
+    // 因为有环则肯定会相遇，所以这种解法一定是可以的
+    private static boolean cycle(ListNode head) {
+        if (head == null || null == head.next) {
             return false;
         }
         ListNode fast = head;
         ListNode slow = head;
-        while(null != fast && null != fast.next){
+        while (null != fast && null != fast.next) {
             slow = slow.next;
             fast = fast.next.next;
-            if(slow == fast){
+            if (slow == fast) {
                 return true;
             }
         }
         return false;
     }
 
-    private class ListNode{
+    private class ListNode {
         public int val;
         public ListNode next;
 
@@ -50,6 +51,4 @@ public class LinkedListCycle {
         }
     }
 
-
-    
 }
