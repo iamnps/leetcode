@@ -10,18 +10,27 @@ public class PathSum {
 
     private void pathSum(){
         TreeNode node1 = new TreeNode(3, null, new TreeNode(4));
-        TreeNode node3 = new TreeNode(1, node1, new TreeNode(2));
-        System.out.println(hasPathSum(node3, 3));
+        TreeNode node3 = new TreeNode(1, null, new TreeNode(2));
+        System.out.println(hasPathSum(node3, 1));
     }
 
-    private int a = 0;
+    private boolean flag = false;
     
     public boolean hasPathSum(TreeNode root, int targetSum) {
+        helper(root, targetSum);
+        return flag;
+    }
+
+    private boolean helper(TreeNode root, int targetSum){
         if(root == null){
             return false;
         }
-        hasPathSum(root.left, targetSum);
-        hasPathSum(root.right, targetSum);
+        targetSum = targetSum - root.val;
+        helper(root.left, targetSum);
+        helper(root.right, targetSum);
+        if(null == root.left && null == root.right && targetSum == 0){
+            flag = true;
+        }  
         return false;
     }
 
