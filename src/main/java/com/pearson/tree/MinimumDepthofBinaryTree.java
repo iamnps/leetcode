@@ -1,18 +1,16 @@
 package com.pearson.tree;
 
 import java.util.LinkedList;
-import java.util.List;
 import java.util.Queue;
 //leetcode 111
 public class MinimumDepthofBinaryTree {
 
     public static void main(String[] args) {
         MinimumDepthofBinaryTree tree = new MinimumDepthofBinaryTree();
-        tree.MinimumDepthofBinaryTree();
-
+        tree.minimumDepthofBinaryTree();
     }
 
-    public void MinimumDepthofBinaryTree() {
+    public void minimumDepthofBinaryTree() {
         // TreeNode node = new TreeNode(4, new TreeNode(5), new TreeNode(6));
         // TreeNode node1 = new TreeNode(1, node, new TreeNode(5));
         // TreeNode node2 = new TreeNode(1, node1, node);
