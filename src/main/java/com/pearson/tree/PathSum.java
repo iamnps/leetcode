@@ -1,29 +1,30 @@
 package com.pearson.tree;
 
-//leecode 104
-public class MaximumDepthofBinaryTree {
+//leetcode 112
+public class PathSum {
 
     public static void main(String[] args) {
-        MaximumDepthofBinaryTree max = new MaximumDepthofBinaryTree();
-        max.maximumDepthofBinaryTree();
+        PathSum pathSum = new PathSum();
+        pathSum.pathSum();
     }
 
-    public void maximumDepthofBinaryTree() {
+    private void pathSum(){
         TreeNode node1 = new TreeNode(3, null, new TreeNode(4));
         TreeNode node3 = new TreeNode(1, node1, new TreeNode(2));
-        System.out.println(maxDepth(node3));
+        System.out.println(hasPathSum(node3, 3));
     }
 
-    // 递归方法，查询深度，先解析最深处，再一层一层返回
-    public int maxDepth(TreeNode root) {
-        if (root == null) {
-            return 0;
+    private int a = 0;
+    
+    public boolean hasPathSum(TreeNode root, int targetSum) {
+        if(root == null){
+            return false;
         }
-        int l = maxDepth(root.left);
-        int r = maxDepth(root.right);
-        int max = l < r ? r : l;
-        return max + 1;
+        hasPathSum(root.left, targetSum);
+        hasPathSum(root.right, targetSum);
+        return false;
     }
+
 
     public class TreeNode {
         int val;
@@ -43,5 +44,4 @@ public class MaximumDepthofBinaryTree {
             this.right = right;
         }
     }
-
 }

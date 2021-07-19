@@ -1,9 +1,5 @@
 package com.pearson.linkedlist;
 
-import java.util.Iterator;
-import java.util.LinkedList;
-import java.util.List;
-
 //leetcode 141
 public class LinkedListCycle {
 
@@ -14,11 +10,7 @@ public class LinkedListCycle {
 
     public void LinkedListCycle() {
         ListNode listNode1 = new ListNode(1);
-        ListNode listNode2 = new ListNode(2);
-        ListNode listNode3 = new ListNode(3);
-        ListNode listNode4 = new ListNode(4);
         ListNode listNode5 = new ListNode(5);
-
         listNode5.next = listNode1;
 
         System.out.println(cycle(listNode5));
