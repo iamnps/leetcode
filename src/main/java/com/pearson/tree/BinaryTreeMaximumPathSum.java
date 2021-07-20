@@ -1,5 +1,4 @@
 package com.pearson.tree;
-import java.util.Set;
 
 public class BinaryTreeMaximumPathSum {
     public static void main(String[] args) {
@@ -24,7 +23,7 @@ public class BinaryTreeMaximumPathSum {
         int l = maxPathSum(root.left);
         r = r > 0 ? r : 0;
         l = l > 0 ? l : 0;
-        max = Math.max(max, root.val + r +l);
+        max = Math.max(max, root.val + r + l);
         return Math.max(root.val + r, root.val + l);
     }
 
