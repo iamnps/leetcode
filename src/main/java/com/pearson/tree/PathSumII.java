@@ -1,11 +1,11 @@
 package com.pearson.tree;
 
-import java.util.ArrayList;
 import java.util.List;
+import java.util.ArrayList;
+import java.util.LinkedList;
 
 /**
- * leetcode 113
- * Created by peishen.nie on 2021/7/21.
+ * leetcode 113 Created by peishen.nie on 2021/7/21.
  */
 public class PathSumII {
 
@@ -14,55 +14,50 @@ public class PathSumII {
         pathSumII.pathSumII();
     }
 
-    private void pathSumII(){
+    private void pathSumII() {
         TreeNode node1 = new TreeNode(7, new TreeNode(3), new TreeNode(4));
         TreeNode node2 = new TreeNode(8, new TreeNode(3), new TreeNode(3));
         TreeNode node3 = new TreeNode(5, node1, node2);
         System.out.println(pathSum(node3, 16));
     }
 
-    private List<List<Integer>> res = new ArrayList<>();
-
     public List<List<Integer>> pathSum(TreeNode root, int targetSum) {
-        if(null == root){
-            return null;
+        if (null == root) {
+            return new ArrayList<>();
         }
-        if(null != root.left){
-            List<Integer> l = helper(root.left, targetSum - root.val);
-            if(null != l){
-                l.add(root.val);
-                res.add(l);
-            }
-
+        List<List<Integer>> rs = new ArrayList<>();
+        LinkedList<LinkedList<Integer>> linkedList = helper(root, targetSum);
+        for (LinkedList<Integer> link : linkedList) {
+            List<Integer> list = new ArrayList<>(link);
+            rs.add(list);
         }
-        if(null != root.right){
-            List<Integer> r = helper(root.right, targetSum - root.val);
-            if(null != r){
-                r.add(root.val);
-                res.add(r);
-            }
-        }
-        return res;
+        return rs;
     }
 
-    private List<Integer> helper(TreeNode root, int targetSum){
+    public LinkedList<LinkedList<Integer>> helper(TreeNode root, int targetSum) {
         targetSum = targetSum - root.val;
-        if(0 == targetSum && null == root.right && null == root.left){
-            List<Integer> list = new ArrayList<>();
-            list.add(root.val);
+        LinkedList<LinkedList<Integer>> list = new LinkedList<>();
+        if (0 == targetSum && null == root.right && null == root.left) {
+            LinkedList<Integer> l = new LinkedList<>();
+            l.addFirst(root.val);
+            list.add(l);
             return list;
         }
-        List<Integer> l = root.left != null ? helper(root.left, targetSum) : null;
-        if(l != null){
-            l.add(root.val);
-            return l;
+        LinkedList<LinkedList<Integer>> l = root.left != null ? helper(root.left, targetSum) : null;
+        if (l != null) {
+            for (LinkedList<Integer> ls : l) {
+                ls.addFirst(root.val);
+                list.add(ls);
+            }
         }
-        List<Integer> r = root.right != null ? helper(root.right, targetSum) : null;
-        if(r != null){
-            r.add(root.val);
-            return r;
+        LinkedList<LinkedList<Integer>> r = root.right != null ? helper(root.right, targetSum) : null;
+        if (r != null) {
+            for (LinkedList<Integer> ls : r) {
+                ls.addFirst(root.val);
+                list.add(ls);
+            }
         }
-        return null;
+        return list;
     }
 
     public class TreeNode {
