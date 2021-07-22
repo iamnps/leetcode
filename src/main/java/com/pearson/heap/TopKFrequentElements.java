@@ -24,7 +24,8 @@ public class TopKFrequentElements {
             hashMap.put(i, hashMap.getOrDefault(i, 0) + 1);
         }
         // 这种思路是出现次数较少的在最上面有出现次数更多的会被踢出去
-        // 还有有一种思路，把大的放最上面，在添加到结果的arr中时，只拿前k个值就好了就是正确结果了
+        // 还有有一种思路，把大的放最上面，不踢小的，在添加到结果的arr中时，只拿前k个值就好了就是正确结果了
+        // 这两种思路 各有优劣
         PriorityQueue<Helper> heap = new PriorityQueue<>((a, b) -> a.b - b.b);
         Set<Integer> set = hashMap.keySet();
         for (Integer i : set) {
