@@ -1,7 +1,10 @@
 package com.pearson.stack;
 
 import java.util.ArrayDeque;
+import java.util.ArrayList;
 import java.util.Deque;
+import java.util.HashMap;
+import java.util.List;
 
 /**
  * leetcode 394 Created by peishen.nie on 2021/7/23.
@@ -11,6 +14,12 @@ public class DecodeString {
     public static void main(String[] args) {
         DecodeString decodeString = new DecodeString();
         decodeString.decodeString();
+
+        HashMap<Integer, List<Integer>> hashMap = new HashMap<>();
+        hashMap.computeIfAbsent(1, k -> new ArrayList<>()).add(2);
+        hashMap.computeIfAbsent(2, k -> new ArrayList<>()).add(3);
+        hashMap.computeIfAbsent(1, k -> new ArrayList<>()).add(3);
+        System.out.println(hashMap);
     }
 
     private void decodeString() {
@@ -20,7 +29,6 @@ public class DecodeString {
     public String decodeString(String s) {
         char[] arr = s.toCharArray();
         Deque<Character> stack = new ArrayDeque<>();
-
         StringBuffer sb = new StringBuffer();
         int a = 0;
         for (Character c : arr) {
