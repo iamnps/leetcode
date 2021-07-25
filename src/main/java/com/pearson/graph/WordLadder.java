@@ -65,8 +65,10 @@ public class WordLadder {
         for (int i = 0; i < n - 1; i++) {
             for (int j = i + 1; j < n; j++) {
                 String w1 = wordList.get(i), w2 = wordList.get(j);
-                graph.computeIfAbsent(w1, k -> new ArrayList<>()).add(w2);
-                graph.computeIfAbsent(w2, k -> new ArrayList<>()).add(w1);
+                if (oneChangeAway(w1, w2)) {
+                    graph.computeIfAbsent(w2, k -> new ArrayList<>()).add(w1);
+                    graph.computeIfAbsent(w1, k -> new ArrayList<>()).add(w2);
+                }
             }
         }
         return graph;
